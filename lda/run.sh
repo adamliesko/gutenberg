@@ -1,0 +1,1 @@
+./bin/run-example mllib.LDAExample  --k 10 --maxIterations 20 --stopwordFile /Users/Adam/gutenberg/lda/stopwords_en.txt /Users/Adam/gutenberg/lda/dataset/
