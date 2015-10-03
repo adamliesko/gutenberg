@@ -1,5 +1,6 @@
 require './persistor'
 require './cleaner'
+require 'json'
 module Parser
   OUT_PATH = './data/es_data_offline.json'
 
@@ -24,11 +25,11 @@ module Parser
   end
 
   def self.es_index_row(id)
-    "{ 'index' : { '_index' : 'gutenberg', '_type' : 'books', '_id' : id } #{id}}"
+    {index: {_index: :gutenberg, _type: :books, _id: id.to_s}}.to_json
   end
 
   def self.book_row(id, author, title, content)
-    es_index_row(id) + "\n" + "{'author': #{author}, 'title': #{title}, 'content': #{content}}" + "\n"
+    es_index_row(id) + "\n" + {author: author, title: title, content: content}.to_json + "\n"
   end
 end
 

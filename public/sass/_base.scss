@@ -1,0 +1,40 @@
+// If there are variables you need to set before setting Bootstrap's, do that here:
+
+// Then we include Bootstrap:
+@import "bootstrap_custom";
+
+// Set any custom variables we need for our site:
+
+$background-shade-light: $gray-lighter;
+$background-shade-dark: #444;
+
+$padding-larger-vertical: ($padding-large-vertical * 2);
+
+// Override some of the Bootstrap styles:
+
+code,
+pre code {
+  font-size: 85%;
+}
+
+// Set styles that will be needed on all sections of the site:
+
+.text-large {
+  font-size: $font-size-large;
+}
+.text-small {
+  font-size: $font-size-small;
+}
+
+.sidebar {
+  margin-top: $padding-larger-vertical;
+  background: $background-shade-light;
+}
+
+.active>a {
+  color: $text-color;
+  &:hover {
+    text-decoration: none;
+  }
+}
+

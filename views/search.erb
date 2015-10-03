@@ -1,0 +1,22 @@
+<form role="form" action="/search/" method="POST">
+  <div class="form-group">
+    <label for="query"><h3>Query</h3></label>
+
+    <p><i>Full-text search on author, title and content. Both author and title fields are boosted.</i></p>
+
+    <input type="text" class="form-control" id="query" name="query" value="<%= @query %>">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+
+<% if @results %>
+
+  <h3>Displaying  <%= @results.size %> out of <%= @total %> results</h3>
+  <% @results.each do |result| %>
+    <h4>
+      <a href="https://www.gutenberg.org/ebooks/search/?query=<%= result[:title] + ' ' + result[:author] %>"><%= result[:title] %> </a>
+      <small>by  <%= result[:author] %></small>
+    </h4>
+    <p><%= result[:content_highlight] %></p>
+  <% end %>
+<% end %>

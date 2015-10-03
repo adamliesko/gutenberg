@@ -1,0 +1,16 @@
+PUT /gutenberg/_mapping/books
+{
+"books": {
+"properties": {
+"author": {
+"type": "string", "store": "true"
+},
+"title": {
+"type": "string", "store": "true"
+},
+"content": {
+"type": "string"
+}
+}
+}
+}
