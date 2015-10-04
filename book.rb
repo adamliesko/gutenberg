@@ -69,8 +69,8 @@ class Book
         "from": from,
 
         "highlight": {
-            "pre_tags": ["<strong>"],
-            "post_tags": ["</strong>"],
+            "pre_tags": ["<mark>"],
+            "post_tags": ["</mark>"],
             "fields": {
                 "content": {}
             }
