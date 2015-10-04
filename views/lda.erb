@@ -1,0 +1,15 @@
+<p class="lead">Using Mallet library we have identified these 15 topics by their respective keywords.</p>
+<% if @topics %>
+
+  <% @topics.each_with_index do |topic, i| %>
+    <% if topic[:mark] %>
+      <h4>Topic #<%= (i+1).to_s + " with score: " + topic[:score].to_s %></h4>
+
+      <mark><%= topic[:words].join " " %></mark>
+    <% else %>
+      <h6>Topic #<%= (i+1).to_s + " with score: " + topic[:score].to_s %></h6>
+
+      <%= topic[:words].join " " %>
+    <% end %>
+  <% end %>
+<% end %>

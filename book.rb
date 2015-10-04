@@ -21,11 +21,11 @@ class Book
     @metadata.to_hash.merge(content: @content)
   end
 
-  def self.search query, from
-    x=build_query(query, from)
+  def self.search(query, from)
+    x = build_query(query, from)
     puts x
     response = Elasticsearcher.client.search index: 'gutenberg', body: x
-    {results: parse_es_books(response), total: response["hits"]["total"]}
+    { results: parse_es_books(response), total: response['hits']['total'] }
   end
 
   def self.book_url(id)
@@ -47,39 +47,36 @@ class Book
     content = f.read
     lines_count = content.lines.count.to_i
     content.each_line do |line|
-      i+=1
+      i += 1
       actions_and_documents << line.strip
       if i % 100 == 0 || i == lines_count
         Elasticsearcher.client.bulk(body: actions_and_documents)
         actions_and_documents = []
       end
     end
-
   end
 
-
-  def self.build_query query, from=nil
+  def self.build_query(query, from = nil)
     {
-        "query": {
-            "multi_match": {
-                "query": query,
-                "fields": ["title^10", "author^10", "content"]
-            }
-        },
-        "from": from,
-
-        "highlight": {
-            "pre_tags": ["<mark>"],
-            "post_tags": ["</mark>"],
-            "fields": {
-                "content": {}
-            }
+      "query": {
+        "multi_match": {
+          "query": query,
+          "fields": ['title^10', 'author^10', 'content']
         }
+      },
+      "from": from,
+
+      "highlight": {
+        "pre_tags": ['<mark>'],
+        "post_tags": ['</mark>'],
+        "fields": {
+          "content": {}
+        }
+      }
     }.to_json
   end
 
   def self.parse_es_books(response)
-    response["hits"]["hits"].map { |hit| {content_highlight: hit["highlight"]["content"].join(' '), title: hit["_source"]["title"], author: hit["_source"]["author"], content: hit["_source"]["content"][0..160]} }
+    response['hits']['hits'].map { |hit| { content_highlight: hit['highlight']['content'].join(' '), title: hit['_source']['title'], author: hit['_source']['author'], content: hit['_source']['content'][0..160] } }
   end
-
 end

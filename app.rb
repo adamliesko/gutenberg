@@ -1,6 +1,7 @@
-require "sinatra/base"
-require "sinatra/reloader"
-require "./book"
+require 'sinatra/base'
+require 'sinatra/reloader'
+require './book'
+require './lda/topic'
 require 'pry'
 
 module Gutenberg
@@ -22,18 +23,16 @@ module Gutenberg
         status 404
         @page_name = '404'
         @page_title = '404'
-        erb :'404', :layout => :with_sidebar,
-            :layout_options => {:views => settings.layouts_dir}
+        erb :'404', layout: :with_sidebar,
+                    layout_options: { views: settings.layouts_dir }
       end
     end
-
 
     not_found do
       show_404
     end
 
-
-# Redirect any URLs without a trailing slash to the version with.
+    # Redirect any URLs without a trailing slash to the version with.
     get %r{(/.*[^\/])$} do
       redirect "#{params[:captures].first}/"
     end
@@ -41,44 +40,48 @@ module Gutenberg
     get '/' do
       @page_name = 'gutenberg'
       @page_title = 'Gutenberg search and LDA'
+      @page_subtitle = 'Information retrieval assignment #1'
+
       erb :index,
-          :layout => :full_width,
-          :layout_options => {:views => settings.layouts_dir}
+          layout: :full_width,
+          layout_options: { views: settings.layouts_dir }
     end
 
-
-# Routes for pages that have unique things...
+    # Routes for pages that have unique things...
 
     get '/search/' do
       @page_name = 'search'
       @page_title = 'Search Gutenberg Books'
+      @page_subtitle = 'Elasticsearch in-memory engine'
       @time = Time.now
       erb :search,
-          :layout => :full_width,
-          :layout_options => {:views => settings.layouts_dir}
+          layout: :full_width,
+          layout_options: { views: settings.layouts_dir }
     end
 
     post '/search/' do
       @page_name = 'search'
       @page_title = 'Search Gutenberg Books'
+      @page_subtitle = 'In-memory search with Elasticsearch'
       query = params[:query]
       response = Book.search(query, params[:from]) if query
-      @results, @total = response[:results], response[:total].to_i
+      @results = response[:results]
+      @total = response[:total].to_i
       @query = query
       erb :search,
-          :layout => :full_width,
-          :layout_options => {:views => settings.layouts_dir}
+          layout: :full_width,
+          layout_options: { views: settings.layouts_dir }
     end
 
     get '/lda/' do
       @page_name = 'lda'
       @page_title = 'Latent Dirichlet Allocation'
+      @page_subtitle = 'Topic Estimation with Mallet'
+      @topics = Topic.load_topics
       @time = Time.now
       erb :lda,
-          :layout => :full_width,
-          :layout_options => {:views => settings.layouts_dir}
+          layout: :full_width,
+          layout_options: { views: settings.layouts_dir }
     end
-
-
   end
 end

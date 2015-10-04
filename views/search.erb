@@ -1,8 +1,8 @@
 <form role="form" action="/search/" method="POST">
   <div class="form-group">
-    <label for="query"><h3>Query</h3></label>
 
-    <p><i>Full-text search on author, title and content. Both author and title fields are boosted.</i></p>
+
+    <p class="lead">Full-text search on author, title and content. Both author and title fields are boosted.</p>
 
     <input type="text" class="form-control" id="query" name="query" value="<%= @query %>">
   </div>
@@ -10,7 +10,6 @@
 </form>
 
 <% if @results %>
-
   <h3>Displaying  <%= @results.size %> out of <%= @total %> results</h3>
   <% @results.each do |result| %>
     <h4>

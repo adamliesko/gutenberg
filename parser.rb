@@ -25,11 +25,11 @@ module Parser
   end
 
   def self.es_index_row(id)
-    {index: {_index: :gutenberg, _type: :books, _id: id.to_s}}.to_json
+    { index: { _index: :gutenberg, _type: :books, _id: id.to_s } }.to_json
   end
 
   def self.book_row(id, author, title, content)
-    es_index_row(id) + "\n" + {author: author, title: title, content: content}.to_json + "\n"
+    es_index_row(id) + "\n" + { author: author, title: title, content: content }.to_json + "\n"
   end
 end
 

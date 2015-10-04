@@ -42,4 +42,3 @@ module Scraper
     end
   end
 end
-

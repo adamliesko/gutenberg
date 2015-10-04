@@ -1,0 +1,15 @@
+1	0.06379	sir king ye lord man lady thou good father master knight castle richard time
+1	0.21507	life man great men world work things time people human good mind nature sense
+1	0.07881	de day lord good king prince french great poor paris young la madame letter
+0	0.00378	ra tz ff se ee ev qm fy sw gn ej ib ku hx
+1	0.10065	god man thou men christ lord good things thy great world life made thee
+1	0.10278	men time great army made general day place back war enemy long troops left
+1	0.05883	species plants animals mr great case part long form birds water forms found cases
+0	0.28987	man eyes face hand looked back moment time long life voice head night turned
+0	0.09335	thy thou love thee heart er life footnote tis day death soul earth ii
+0	0.22706	good time day great long back man made home head house mother people till
+1	0.17554	great time made country mr general state people government power man part men public
+0 0.11829	mr don mrs man ve ll good time back room sir miss asked young
+0 0.08219	ll don man back ve good time made dick men make tom boys long
+0	0.16306	mr mrs lady man miss good time don made sir house thought dear young
+1	0.11807	captain time sea ship men water man boat good made great long day found
