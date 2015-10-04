@@ -1,25 +1,62 @@
 <h2>Idea</h2>
-<p>Hdfd</p>
+<p class="lead">Parse metadata and full texts from
+  <a href="http://www.gutenberg.org/wiki/Main_Page">Project Gutenberg</a>, which is
+  a archive of books. These books were made avialable public through a license agreement or by the fact that they age is
+  bigger than 80 years or their authors are dead.
+  Implement in-memory search over parsed data and analyse texts with Latent Dirichlet Allocation in order to discover
+  topics within the books.</p>
 
 <h2>Dataset</h2>
+<p>In our assignment we have worked with three datasets from different sources.</p>
+<ul>
+  <li>
+    <p><a href="http://web.eecs.umich.edu/~lahiri/gutenberg_dataset.html">Gutenberg Dataset</a> - This is a collection
+      of 3,036 English books written by 142 authors. This collection is a small subset of the Project Gutenberg corpus.
+    </p>
+  </li>
+  <li>
+    <p>
+      <a href="https://www.google.sk/webhp?sourceid=chrome-instant&ion=1&espv=2&ie=UTF-8#q=project%20gutenberg%20dvd%202010">
+        Project
+        Gutenberg DVD (2010)</a> - Compilation of almost 30,000 books with all the file formats like epub, html or txt.
+    </p>
+  </li>
+  <li>
+    <p><a href="http://www.gutenberg.org/ebooks/50131">Project Gutenberg live site scraping</a> - By scraping the live
+      site, we would have been able to parse all the necessary metadata and raw books' content. Unfortunately, Gutenberg
+      is not a very happy with this approach and we would have to rapidly limit our download rate. On this assignment
+      we have not used data from this source, but we have fully implemented the scraper/parser which might be setup as a
+      scheduled CRON job in order to obtain the Gutenberg data over a longer period of time (1 month or so).
+    </p>
+  </li>
+</ul>
 
 <h2>Implementation</h2>
-<p></p>
+
+<h4>In-memory search</h4>
+<p>TODO</p>
+
+
+<h4>LDA Topic Estimation</h4>
+<p>TODO</p>
+<p>TODO</p>
+
 <h2>Requirements</h2>
 
 <h4>Engines</h4>
 <ul>
-  <li><a href="https://www.elastic.co/products/elasticsearch"> Elasticsearch v.1.7+</a></li>
-  <li><a href="http://spark.apache.org/">Spark v 1.4+</a></li>
+  <li><a href="https://www.elastic.co/products/elasticsearch"> Elasticsearch (1.7)</a> - in-memory full-text search
+  </li>
+  <li><a href="http://mallet.cs.umass.edu/index.php">Mallet (2.0.7)</a> - used for LDA topic estimation</li>
 </ul>
 
 <h4>Web Application</h4>
 <ul>
   <li>Ruby</li>
   <li>Sinatra</li>
-  <li>Check Gemfile for docs :)</li>
+  <li>Take a look at Gemfile for docs :)</li>
 </ul>
 
 <h2>Source Code</h2>
-<p>For source codes and source code checkout <a href="https://github.com/adamliesko/gutenberg">Github repository</a>.
+<p>For source code checkout <a href="https://github.com/adamliesko/gutenberg">Github repository</a>.
 </p>
