@@ -3,8 +3,8 @@
 
 //== Colors
 
-$text-color:      #000;
-$link-color:      #35c1bb;
+$text-color: #000;
+$link-color: #35c1bb;
 
 //== Scaffolding
 //== Typography
@@ -20,7 +20,7 @@ $link-color:      #35c1bb;
 //== Grid system
 
 //** Point at which the navbar becomes uncollapsed.
-$grid-float-breakpoint:     400px;
+$grid-float-breakpoint: 400px;
 //** Point at which the navbar begins collapsing.
 $grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
 

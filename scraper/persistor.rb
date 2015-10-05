@@ -12,7 +12,7 @@ module Scraper
     private
 
     def self.es_index_row
-      "{ 'index' : { '_index' : 'gutenberg', '_type' : 'books'}"
+      { index: { _index: :gutenberg, _type: :books } }.to_json
     end
 
     def self.book_row(book)

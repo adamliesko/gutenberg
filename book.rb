@@ -1,7 +1,5 @@
 require 'json'
 require './elasticsearcher'
-require 'jbuilder'
-require 'hashie'
 
 class Book
   attr_accessor :metadata, :content

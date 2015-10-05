@@ -1,5 +1,4 @@
 // If there are variables you need to set before setting Bootstrap's, do that here:
-
 // Then we include Bootstrap:
 @import "bootstrap_custom";
 
@@ -22,6 +21,7 @@ pre code {
 .text-large {
   font-size: $font-size-large;
 }
+
 .text-small {
   font-size: $font-size-small;
 }
@@ -31,7 +31,7 @@ pre code {
   background: $background-shade-light;
 }
 
-.active>a {
+.active > a {
   color: $text-color;
   &:hover {
     text-decoration: none;

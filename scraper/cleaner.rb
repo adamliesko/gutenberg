@@ -1,5 +1,9 @@
 module Scraper
   module Cleaner
+    #
+    # MARKERS taken from https://github.com/c-w/Gutenberg
+    #
+
     HEADER_MARKERS = [
 
       '*** START OF THE PROJECT GUTENBERG',
