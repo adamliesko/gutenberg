@@ -33,4 +33,3 @@ module Parser
   end
 end
 
-Parser.extract_data_to_es_json('./dataset/')
